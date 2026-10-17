@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#090b10"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Miqaat">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="styles.css">
+<title>Miqaat</title>
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<main class="app-shell">
+<header class="topbar glass"><div><div class="brand">Miqaat</div><div id="locationLabel" class="subtle">Vienna</div></div><button id="installBtn" class="icon-btn" hidden>＋</button></header>
+
+<section id="home" class="view active">
+<section class="hero glass">
+<div class="eyebrow" data-i18n="nextPrayer">NEXT PRAYER</div>
+<div id="nextPrayerName" class="next-name">—</div><div id="nextPrayerTime" class="next-time">--:--</div><div id="countdown" class="countdown">—</div>
+<div class="date-row"><span id="gregDate"></span><span>•</span><span id="hijriDate"></span></div>
+</section>
+<section class="glass card">
+<div class="prayer-row"><span data-i18n="fajr">Fajr</span><strong id="fajr">--:--</strong></div>
+<div class="prayer-row sunrise"><span data-i18n="sunrise">Sunrise</span><strong id="sunrise">--:--</strong></div>
+<div class="prayer-row"><span data-i18n="dhuhr">Dhuhr</span><strong id="dhuhr">--:--</strong></div>
+<div class="prayer-row"><span data-i18n="asr">Asr</span><strong id="asr">--:--</strong></div>
+<div class="prayer-row"><span data-i18n="maghrib">Maghrib</span><strong id="maghrib">--:--</strong></div>
+<div class="prayer-row"><span data-i18n="isha">Isha</span><strong id="isha">--:--</strong></div>
+</section>
+<section class="glass card compact"><div class="status-line"><span data-i18n="method">Method</span><span id="methodLabel">MWL</span></div><div class="status-line"><span data-i18n="asrMethod">Asr</span><span id="asrLabel">Standard</span></div></section>
+</section>
+
+<section id="qibla" class="view"><section class="glass card qibla-card">
+<div class="eyebrow" data-i18n="qibla">QIBLA</div><div class="compass"><div class="ring"></div><div id="needle" class="needle">▲</div><div class="kaaba">◆</div></div>
+<div id="qiblaDegrees" class="big-reading">—°</div><div id="headingStatus" class="subtle">Move the phone to calibrate</div>
+<button id="enableCompassBtn" class="primary" data-i18n="enableCompass">Enable Compass</button>
+</section></section>
+
+<section id="calendar" class="view"><section class="glass card"><div class="section-title" data-i18n="monthPrayerTimes">Month Prayer Times</div><div id="monthTitle" class="subtle"></div><div id="calendarTable" class="calendar-table"></div></section></section>
+
+<section id="settings" class="view"><section class="glass card settings-card">
+<div class="section-title" data-i18n="settings">Settings</div>
+<label data-i18n="language">Language</label><select id="languageSelect"></select>
+<label data-i18n="locationMode">Location</label><div class="segmented"><button id="autoLocBtn" class="seg active" data-i18n="automatic">Automatic</button><button id="manualLocBtn" class="seg" data-i18n="manual">Manual</button></div>
+<div id="manualLocationBox" hidden><select id="citySelect">
+<option value="48.2082,16.3738,Europe/Vienna,Vienna">Vienna</option><option value="21.4225,39.8262,Asia/Riyadh,Makkah">Makkah</option><option value="24.4672,39.6111,Asia/Riyadh,Medina">Medina</option><option value="52.52,13.405,Europe/Berlin,Berlin">Berlin</option><option value="48.8566,2.3522,Europe/Paris,Paris">Paris</option><option value="51.5074,-0.1278,Europe/London,London">London</option><option value="41.0082,28.9784,Europe/Istanbul,Istanbul">Istanbul</option>
+</select></div>
+<label data-i18n="calculationMethod">Calculation Method</label><select id="methodSelect"><option value="MWL">Muslim World League</option><option value="UQ">Umm al-Qura</option><option value="EGYPT">Egyptian</option><option value="KARACHI">Karachi</option><option value="ISNA">ISNA</option></select>
+<label data-i18n="asrMethod">Asr Method</label><select id="asrSelect"><option value="standard">Standard</option><option value="hanafi">Hanafi</option></select>
+<label data-i18n="reminder">Reminder Before Prayer</label><select id="reminderSelect"><option value="0">Off</option><option value="5">5 min</option><option value="10">10 min</option><option value="15">15 min</option><option value="30">30 min</option><option value="60">60 min</option></select>
+<label data-i18n="notificationTest">Notification Test</label><button id="notificationBtn" class="primary" data-i18n="enableNotifications">Enable / Test Notifications</button><div class="hint" data-i18n="notificationNote"></div>
+<label data-i18n="adhan">Adhan Audio</label><input id="adhanInput" type="file" accept="audio/*"><audio id="adhanPlayer" controls class="audio"></audio><div class="hint" data-i18n="adhanNote"></div>
+<button id="resetBtn" class="danger" data-i18n="reset">Reset Settings</button>
+</section></section>
+
+<nav class="tabbar glass">
+<button class="tab active" data-target="home"><span>◷</span><small data-i18n="prayerTimes">Prayer</small></button>
+<button class="tab" data-target="qibla"><span>⌁</span><small data-i18n="qibla">Qibla</small></button>
+<button class="tab" data-target="calendar"><span>▦</span><small data-i18n="calendar">Calendar</small></button>
+<button class="tab" data-target="settings"><span>⚙</span><small data-i18n="settings">Settings</small></button>
+</nav></main><script src="app.js"></script></body></html>
